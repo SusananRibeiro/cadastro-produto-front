@@ -1,0 +1,36 @@
+<div class="conteudo">
+  <h1>Cadastro de produtos</h1>
+
+  <div class="avisos">
+    <h3 *ngIf="this.formulario?.invalid && this.formulario?.submitted">Formulário inválido!</h3>
+  </div>
+  
+<!-- Fazer alterações nessa parte -->
+  <form #formulario="ngForm" (submit)="addProduto(formulario)" style="margin-bottom: 15px;">
+    <input type="hidden" name="codigo" ngModel>
+    <div class="input-group">
+      <label for="nome">Nome: </label>
+      <input type="text" name="nome" id="nome" ngModel required>
+    </div>
+    <div class="input-group">
+      <label for="categoria">Categoria: </label>
+      <select name="categoria" id="categoria" ngModel required>
+        <option value="ELETRO">Eletro</option>
+        <option value="TELEFONIA">Telefonia</option>
+        <option value="BRINQUEDO">Brinquedo</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="valor">Valor: </label>
+      <input type="number" name="valor" id="valor" ngModel required>
+    </div>
+
+    <div class="btn-group">
+      <input class="btn" type="reset" value="Limpar">
+      <input class="btn btn-verde" type="submit" value="Salvar">
+    </div>
+  </form>
+
+  <app-listagem [dados]="produtos" [colunas]="['codigo', 'nome', 'valor', 'categoria']" (onEditar)="editar($event)"
+    (onExcluir)="excluir($event)" />
+</div>

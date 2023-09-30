@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+.btn {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-verde {
+    background-color: rgba(0, 128, 0, 0.774);
+    color: white;
+}
+
+.btn-vermelho {
+    background-color: red;
+    color: white;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.input-group label {
+    font-weight: bold;
+}
+
+.input-group input,
+select {
+    padding: 10px 5px;
+}
+
+.btn-group {
+    margin-top: 5px;
+    /* float: right; */
+    text-align: end;
+}
+
+.btn-group .btn {
+    margin: 15px 0px 15px 5px;
+}
