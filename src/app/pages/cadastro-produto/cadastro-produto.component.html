@@ -1,10 +1,6 @@
 <div class="conteudo">
 <h1>Cadastro de produtos</h1>
 
-<div class="avisos">
-  <h3 *ngIf="this.formulario?.invalid && this.formulario?.submitted">Formulário inválido!</h3>
-</div>
-
 <form #formulario="ngForm" (ngSubmit)="save(formulario)">
     <input type="hidden" name="id" id="id" ngModel>
     <div class="input-group">
@@ -14,6 +10,7 @@
     <div class="input-group">
       <label for="categoria">Categoria: </label>
       <select name="categoria" id="categoria" ngModel required>
+        <option value="VAZIO"></option>
         <option value="ELETRO">Eletro</option>
         <option value="TELEFONIA">Telefonia</option>
         <option value="BRINQUEDO">Brinquedo</option>
@@ -30,7 +27,7 @@
     </div>
   </form>
 
-  <table border="1">
+  <table border="1" [width]="500">
     <thead>
         <tr>
             <th>Código</th>
@@ -53,5 +50,3 @@
         </tr>
     </tbody>
 </table>
-
-<!-- <ng-template></ng-template> -->
