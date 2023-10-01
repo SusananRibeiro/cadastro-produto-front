@@ -9,6 +9,4 @@ import { Produto } from './models/Produto';
 })
 export class AppComponent {
 
-
-
 }

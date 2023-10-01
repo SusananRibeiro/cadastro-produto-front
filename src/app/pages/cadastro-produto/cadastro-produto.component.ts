@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { Produto } from 'src/app/models/Produto';
 import { ProdutoService } from 'src/app/services/produto.service';
 
-// Nessa parte vai chamar o serviço
 @Component({
   selector: 'app-cadastro-produto',
   templateUrl: './cadastro-produto.component.html',
@@ -13,6 +12,7 @@ import { ProdutoService } from 'src/app/services/produto.service';
 export class CadastroProdutoComponent implements OnInit{
 
   private service: ProdutoService = inject(ProdutoService);
+  
   public produtos: Produto[] = [];
 
   @ViewChild("formulario") formulario: NgForm | undefined;
@@ -21,7 +21,6 @@ export class CadastroProdutoComponent implements OnInit{
     this.get();
   }
 
-  // Método GET (READ/CONSULTA)
   public get() {
     this.service.get().subscribe(
       (response: any) => {
@@ -33,7 +32,6 @@ export class CadastroProdutoComponent implements OnInit{
     )
   }
 
-    // Método POST e PUT (CREATE/INSERIR) e PUT (UPDATE/ATUALIZAR)
     public save(formulario: NgForm) {
       
       if(!formulario.valid) {
@@ -52,7 +50,6 @@ export class CadastroProdutoComponent implements OnInit{
       )
     }
 
-  // Método PUT (UPDATE)
   public setEditar(produto: Produto) {
     // this.formulario?.setValue(produto); -> Foi mudado essa parte
     this.service.find(produto.id).subscribe(
@@ -65,7 +62,6 @@ export class CadastroProdutoComponent implements OnInit{
     );    
   }  
 
-  // Método DELETE (DELETE/REMOVER)
   public delete(id: number) {
     this.service.delete(id).subscribe(
       (response) => {

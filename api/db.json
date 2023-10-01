@@ -3,14 +3,20 @@
     {
       "id": 1,
       "nome": "Celalur Moto G4",
-      "categoria": "Telefonia",
+      "categoria": "TELEFONIA",
       "valor": 50.5
     },
     {
       "id": 2,
-      "nome": "Pepa Pig",
+      "nome": "Minions",
       "categoria": "BRINQUEDO",
       "valor": 50
+    },
+    {
+      "id": 3,
+      "nome": "Samsung",
+      "categoria": "TELEFONIA",
+      "valor": 600
     }
   ]
 }

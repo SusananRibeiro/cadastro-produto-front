@@ -16,7 +16,7 @@ export class ProdutoService {
 
   // Método GET (READ)
   public get():Observable<Produto[]> {
-    return this.http.get<Produto[]>(`${enviroment.URL_API}/produtos`); // Ou pode usar o tamplete Strig `${enviroment.URL_API}/clientes`
+    return this.http.get<Produto[]>(`${enviroment.URL_API}/produtos`); 
   }
 
   // Método POST (CREATE)
