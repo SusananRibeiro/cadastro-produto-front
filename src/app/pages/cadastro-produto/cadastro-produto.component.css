@@ -1,0 +1,14 @@
+.conteudo {
+    width: 500px;
+    max-width: 500px;
+    margin: auto;
+}
+.avisos {
+    background-color: rgba(255, 0, 0, 0.342);
+    border-radius: 5px;
+}
+
+.avisos h3 {
+    padding: 15px 5px;
+    color: rgb(95, 10, 10);
+}

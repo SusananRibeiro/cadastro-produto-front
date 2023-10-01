@@ -12,24 +12,28 @@ import { enviroment } from 'src/env/env.dev';
 })
 export class ProdutoService {
 
-  private http: HttpClient = inject(HttpClient); 
+  private http: HttpClient = inject(HttpClient);
 
-  // Método GET -> "/carregar_produto" ou "/carregar_produto/{id}"
-  public get(): Observable<Produto[]> {
-    return this.http.get<Produto[]>(`$(enviroment.URL_API)/carregar_produto`);
+  // Método GET (READ)
+  public get():Observable<Produto[]> {
+    return this.http.get<Produto[]>(`${enviroment.URL_API}/produtos`); // Ou pode usar o tamplete Strig `${enviroment.URL_API}/clientes`
   }
 
-  // Método POST e PUT -> "/criar_produto" e "/atualizar_produto/{id}"
+  // Método POST (CREATE)
   public save(produto: Produto, id: number = 0): Observable<Produto> {
     if(id > 0) {
-      return this.http.put<Produto>(`${enviroment.URL_API}/atualizar_produto/${id}`, produto);
+      return this.http.put<Produto>(`${enviroment.URL_API}/produtos/${id}`, produto);
     }
-    return this.http.post<Produto>(`${enviroment.URL_API}/criar_produto`, produto);
+    return this.http.post<Produto>(`${enviroment.URL_API}/produtos`, produto);
   }
 
-  // Método DELETE -> "/deletar_produto/{id}"
+  public find(id: number): Observable<Produto> {
+    return this.http.get<Produto>(`${enviroment.URL_API}/produtos/${id}`);
+  }
+
+  // Método DELETE (DELETE)
   public delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${enviroment.URL_API}/deletar_produto/${id}`);
+    return this.http.delete<void>(`${enviroment.URL_API}/produtos/${id}`);
   }
   
 }
