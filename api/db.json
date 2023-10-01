@@ -1,0 +1,16 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Celalur Moto G4",
+      "categoria": "Telefonia",
+      "valor": 50.5
+    },
+    {
+      "id": 2,
+      "nome": "Pepa Pig",
+      "categoria": "BRINQUEDO",
+      "valor": 50
+    }
+  ]
+}
