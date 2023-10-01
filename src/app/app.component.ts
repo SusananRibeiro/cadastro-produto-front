@@ -9,35 +9,6 @@ import { Produto } from './models/Produto';
 })
 export class AppComponent {
 
-  private codigo = 1;
-  produtos: Produto[] = [];
 
-  @ViewChild("formulario") formulario: NgForm | undefined;
-
-  addProduto(formulario: NgForm) {
-    if (formulario.valid) {
-      let produto: Produto = formulario.value;
-      if (produto.codigo > 0) {
-        this.excluir(produto);
-        this.produtos.push(produto);
-      } else {
-        this.produtos.push({ 
-          ...formulario.value, 
-          codigo: this.codigo++ 
-        })
-      }
-      this.formulario?.resetForm();
-    }
-  }
-
-  editar(item: Produto) {
-    if (this.formulario) {
-      this.formulario.setValue(item);
-    }
-  }
-
-  excluir(item: Produto) {
-    this.produtos = this.produtos.filter(p => p.codigo != item.codigo);
-  }
 
 }

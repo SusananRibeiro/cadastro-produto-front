@@ -14,9 +14,9 @@ export class CadastroProdutoComponent implements OnInit{
 
   private service: ProdutoService = inject(ProdutoService);
   public produtos: Produto[] = [];
+
   @ViewChild("formulario") formulario: NgForm | undefined;
 
-  // Vazio
   ngOnInit(): void {
     this.get();
   }
@@ -35,6 +35,7 @@ export class CadastroProdutoComponent implements OnInit{
 
     // Método POST e PUT (CREATE/INSERIR) e PUT (UPDATE/ATUALIZAR)
     public save(formulario: NgForm) {
+      
       if(!formulario.valid) {
         alert("Dados inválidos")
         return;
@@ -51,6 +52,19 @@ export class CadastroProdutoComponent implements OnInit{
       )
     }
 
+  // Método PUT (UPDATE)
+  public setEditar(produto: Produto) {
+    // this.formulario?.setValue(produto); -> Foi mudado essa parte
+    this.service.find(produto.id).subscribe(
+      (response: Produto) => {
+        this.formulario?.setValue(response);
+      },
+      (error: any) => {
+        alert("Erro ao buscar produto!");
+      }
+    );    
+  }  
+
   // Método DELETE (DELETE/REMOVER)
   public delete(id: number) {
     this.service.delete(id).subscribe(
@@ -63,5 +77,6 @@ export class CadastroProdutoComponent implements OnInit{
       }
     )
   }
+
 
 }

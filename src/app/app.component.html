@@ -1,11 +1,11 @@
-<div class="conteudo">
+<!-- <div class="conteudo">
   <h1>Cadastro de produtos</h1>
 
   <div class="avisos">
     <h3 *ngIf="this.formulario?.invalid && this.formulario?.submitted">Formulário inválido!</h3>
   </div>
   
-<!-- Fazer alterações nessa parte -->
+
   <form #formulario="ngForm" (submit)="addProduto(formulario)" style="margin-bottom: 15px;">
     <input type="hidden" name="codigo" ngModel>
     <div class="input-group">
@@ -31,6 +31,9 @@
     </div>
   </form>
 
+  
   <app-listagem [dados]="produtos" [colunas]="['codigo', 'nome', 'valor', 'categoria']" (onEditar)="editar($event)"
     (onExcluir)="excluir($event)" />
-</div>
+</div> -->
+
+<router-outlet></router-outlet>
